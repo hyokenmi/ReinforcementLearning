@@ -113,6 +113,7 @@ class LearningAgent(Agent):
             self.Q[state] = state_entry
         return
 
+
     def choose_action_random(self):
         n = random.randint(0, 3)
         action = self.valid_actions[n]
