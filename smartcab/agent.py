@@ -165,7 +165,11 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         if self.learning:
             maxA, maxQ = self.get_maxQ(state)
-            self.Q[state][action] = reward + self.alpha * maxQ
+            # new value, no gamma
+            X = reward + maxQ
+            #update Q with alpha
+            self.Q[state][action] = (1 - self.alpha) * self.Q[state][action] + self.alpha * X
+            #self.Q[state][action] = reward + self.alpha * maxQ
         return
 
 
