@@ -67,14 +67,17 @@ class LearningAgent(Agent):
         turn_left = (waypoint == 'left')
         turn_right = (waypoint == 'right')
         forward = (waypoint == 'forward')
-
         is_red_light = (inputs['light'] == 'red')
+        is_green_light = (inputs['light'] == 'green')
 
         coming_left = (inputs['left'] == 'left')
         coming_right = (inputs['right'] == 'right')
         oncoming = (inputs['oncoming'] == 'oncoming')
 
-        state = (turn_left, turn_right, forward, is_red_light, coming_left, coming_right, oncoming, deadline)
+        state = (turn_left & coming_left, turn_right & coming_right, forward, is_green_light, oncoming)
+        #state = (turn_left, turn_right, forward, is_red_light, coming_left, coming_right, oncoming)
+        #state = (forward, is_red_light, coming_left, coming_right, oncoming)
+        #state = (forward, is_green_light, coming_left, coming_right)
 
         return state
 
