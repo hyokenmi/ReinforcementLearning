@@ -10,7 +10,7 @@ class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """ 
 
-    def __init__(self, env, learning=True, epsilon=1.0, alpha=0.5):
+    def __init__(self, env, learning=True, epsilon=1.0, alpha=0.8):
         super(LearningAgent, self).__init__(env)     # Set the agent in the evironment 
         self.planner = RoutePlanner(self.env, self)  # Create a route planner
         self.valid_actions = self.env.valid_actions  # The set of valid actions
@@ -42,7 +42,27 @@ class LearningAgent(Agent):
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
         self.trial += 1
-        self.epsilon = 1 - 0.05 * (self.trial - 1)
+
+        #self.alpha = 1 - 0.05 * (self.trial - 1)
+        #self.alpha = max(self.alpha, 0.5)
+        #self.alpha = 1/self.trial
+
+        #self.epsilon = 1 - 0.05 * (self.trial - 1)
+
+        #epsilon = a ^ t
+        #a = 0.86089
+        #self.epsilon = pow(a, self.trial)
+
+        # epsilon = 1/t^2
+        self.epsilon = 1 / pow(self.trial, 2)
+
+        # epsilon = e ^ (-20*a*t)
+        #a = 0.14979
+        #self.epsilon = math.exp(-a * self.trial)
+
+        # epsilon =  cos(a*t)
+        #a = 0.03927
+        #self.epsilon = math.cos(a * self.trial)
 
         if testing:
             self.epsilon = 0
@@ -74,10 +94,11 @@ class LearningAgent(Agent):
         coming_right = (inputs['right'] == 'right')
         oncoming = (inputs['oncoming'] == 'oncoming')
 
-        state = (turn_left & coming_left, turn_right & coming_right, forward, is_green_light, oncoming)
+        state = (turn_left & (not coming_left), \
+                 turn_right & (not coming_right), forward, is_red_light, oncoming)
+        #state = (turn_left & coming_left, turn_right & coming_right, forward, is_red_light, oncoming)
+
         #state = (turn_left, turn_right, forward, is_red_light, coming_left, coming_right, oncoming)
-        #state = (forward, is_red_light, coming_left, coming_right, oncoming)
-        #state = (forward, is_green_light, coming_left, coming_right)
 
         return state
 
@@ -112,7 +133,7 @@ class LearningAgent(Agent):
         if state not in self.Q:
             state_entry = {}
             for action in self.valid_actions:
-                state_entry[action] = 0
+                state_entry[action] = 0.0
             self.Q[state] = state_entry
         return
 
@@ -137,17 +158,17 @@ class LearningAgent(Agent):
         # When not learning, choose a random action
         # When learning, choose a random action with 'epsilon' probability
         #   Otherwise, choose an action with the highest Q-value for the current state
-        if not self.learning :
+        if not self.learning:
             action = self.choose_action_random()
         elif self.learning:
             elements = [1,2]
             weights = [self.epsilon, 1-self.epsilon]
 
             # One for random action, Two for argmax Q
-            OneTwo = choice(elements, p=weights)
-            if OneTwo == 1:
+            onetwo = choice(elements, p=weights)
+            if onetwo == 1:
                 action = self.choose_action_random()
-            elif OneTwo == 2:
+            elif onetwo == 2:
                 action, value = self.get_maxQ(state)
 
         return action
@@ -167,9 +188,9 @@ class LearningAgent(Agent):
             maxA, maxQ = self.get_maxQ(state)
             # new value, no gamma
             X = reward + maxQ
+
             #update Q with alpha
             self.Q[state][action] = (1 - self.alpha) * self.Q[state][action] + self.alpha * X
-            #self.Q[state][action] = reward + self.alpha * maxQ
         return
 
 
@@ -220,7 +241,7 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env, update_delay=0.01, display=False, log_metrics = True)
+    sim = Simulator(env, update_delay=0.01, display=False, log_metrics=True, optimized=True)
     
     ##############
     # Run the simulator
