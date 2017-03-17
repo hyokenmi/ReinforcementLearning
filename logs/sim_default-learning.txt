@@ -1,0 +1,136 @@
+/-----------------------------------------
+| State-action rewards from Q-Learning
+\-----------------------------------------
+
+(False, True, False, True, True, False, False)
+ -- forward : -19.63
+ -- right : 1.79
+ -- None : 0.00
+ -- left : -19.44
+
+(False, False, True, False, True, False, False)
+ -- forward : 2.31
+ -- right : 0.42
+ -- None : 0.00
+ -- left : -9.45
+
+(False, True, False, False, True, False, False)
+ -- forward : 2.57
+ -- right : 1.52
+ -- None : -0.01
+ -- left : 0.00
+
+(True, False, False, False, True, True, False)
+ -- forward : 0.00
+ -- right : 0.00
+ -- None : 0.00
+ -- left : 0.00
+
+(True, False, False, True, False, False, False)
+ -- forward : -0.35
+ -- right : 22.71
+ -- None : 75.66
+ -- left : 12.39
+
+(False, False, True, False, True, True, False)
+ -- forward : 0.00
+ -- right : 0.00
+ -- None : 0.00
+ -- left : 0.46
+
+(False, False, True, True, False, False, False)
+ -- forward : -3.09
+ -- right : 9.80
+ -- None : 15.10
+ -- left : -25.98
+
+(False, True, False, True, False, False, False)
+ -- forward : -8.97
+ -- right : 19.30
+ -- None : 27.72
+ -- left : 3.37
+
+(True, False, False, True, False, True, False)
+ -- forward : -4.61
+ -- right : -9.56
+ -- None : 0.00
+ -- left : -7.03
+
+(False, False, True, True, False, True, False)
+ -- forward : -20.23
+ -- right : 0.00
+ -- None : 0.00
+ -- left : -7.51
+
+(False, True, False, True, False, True, False)
+ -- forward : 0.00
+ -- right : 0.00
+ -- None : 3.43
+ -- left : 0.00
+
+(True, False, False, False, False, True, False)
+ -- forward : 0.41
+ -- right : 2.01
+ -- None : -2.41
+ -- left : -8.90
+
+(False, False, True, False, False, True, False)
+ -- forward : 0.00
+ -- right : 0.61
+ -- None : -0.10
+ -- left : 0.14
+
+(False, True, False, False, False, True, False)
+ -- forward : 0.00
+ -- right : 0.00
+ -- None : 0.00
+ -- left : 0.67
+
+(True, False, False, False, False, False, False)
+ -- forward : 23.20
+ -- right : 13.63
+ -- None : 8.79
+ -- left : 18.56
+
+(True, False, False, True, True, True, False)
+ -- forward : 0.00
+ -- right : 0.00
+ -- None : 0.00
+ -- left : 0.00
+
+(False, False, True, False, False, False, False)
+ -- forward : 3.92
+ -- right : 9.50
+ -- None : 2.08
+ -- left : -5.26
+
+(False, True, False, False, False, False, False)
+ -- forward : 11.43
+ -- right : 14.67
+ -- None : 0.19
+ -- left : 3.14
+
+(False, True, False, True, True, True, False)
+ -- forward : -5.09
+ -- right : 0.00
+ -- None : 0.00
+ -- left : 0.00
+
+(True, False, False, True, True, False, False)
+ -- forward : 0.00
+ -- right : 1.91
+ -- None : 7.02
+ -- left : -19.70
+
+(True, False, False, False, True, False, False)
+ -- forward : 5.73
+ -- right : 0.00
+ -- None : -2.34
+ -- left : 1.96
+
+(False, False, True, True, True, False, False)
+ -- forward : -5.41
+ -- right : 0.84
+ -- None : 0.00
+ -- left : -19.93
+
