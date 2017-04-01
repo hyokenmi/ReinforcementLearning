@@ -10,7 +10,7 @@ class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """ 
 
-    def __init__(self, env, learning=True, epsilon=1.0, alpha=0.8):
+    def __init__(self, env, learning=False, epsilon=1.0, alpha=0.6):
         super(LearningAgent, self).__init__(env)     # Set the agent in the evironment 
         self.planner = RoutePlanner(self.env, self)  # Create a route planner
         self.valid_actions = self.env.valid_actions  # The set of valid actions
@@ -43,26 +43,19 @@ class LearningAgent(Agent):
         # If 'testing' is True, set epsilon and alpha to 0
         self.trial += 1
 
+        self.alpha = 0.8
         #self.alpha = 1 - 0.05 * (self.trial - 1)
-        #self.alpha = max(self.alpha, 0.5)
-        #self.alpha = 1/self.trial
 
         #self.epsilon = 1 - 0.05 * (self.trial - 1)
 
-        #epsilon = a ^ t
-        #a = 0.86089
-        #self.epsilon = pow(a, self.trial)
+        #self.epsilon = pow(0.86089, self.trial)
 
-        # epsilon = 1/t^2
-        self.epsilon = 1 / pow(self.trial, 2)
+        self.epsilon = 1 / self.trial ** 2
 
-        # epsilon = e ^ (-20*a*t)
         #a = 0.14979
         #self.epsilon = math.exp(-a * self.trial)
 
-        # epsilon =  cos(a*t)
-        #a = 0.03927
-        #self.epsilon = math.cos(a * self.trial)
+        #self.epsilon = math.cos(0.03927 * self.trial)
 
         if testing:
             self.epsilon = 0
@@ -84,21 +77,7 @@ class LearningAgent(Agent):
         ###########
         # Set 'state' as a tuple('turn_left', 'turn_right','forward', 'is_red_light',
         # 'coming_left','coming_right', 'oncoming', 'deadline') of relevant data for the agent
-        turn_left = (waypoint == 'left')
-        turn_right = (waypoint == 'right')
-        forward = (waypoint == 'forward')
-        is_red_light = (inputs['light'] == 'red')
-        is_green_light = (inputs['light'] == 'green')
-
-        coming_left = (inputs['left'] == 'left')
-        coming_right = (inputs['right'] == 'right')
-        oncoming = (inputs['oncoming'] == 'oncoming')
-
-        state = (turn_left & (not coming_left), \
-                 turn_right & (not coming_right), forward, is_red_light, oncoming)
-        #state = (turn_left & coming_left, turn_right & coming_right, forward, is_red_light, oncoming)
-
-        #state = (turn_left, turn_right, forward, is_red_light, coming_left, coming_right, oncoming)
+        state = (waypoint, inputs['light'], inputs['left'], inputs['right'],inputs['oncoming'])
 
         return state
 
@@ -116,8 +95,8 @@ class LearningAgent(Agent):
 
         if state in self.Q:
             actiondict = self.Q[state]
-            maxA = max(actiondict, key=actiondict.get)
-            maxQ = actiondict[maxA]
+            maxQ = max(actiondict.values())
+            maxA = [key for key in actiondict.keys() if actiondict[key] == maxQ]
         return maxA, maxQ
 
 
@@ -130,18 +109,20 @@ class LearningAgent(Agent):
         # When learning, check if the 'state' is not in the Q-table
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
-        if state not in self.Q:
-            state_entry = {}
-            for action in self.valid_actions:
-                state_entry[action] = 0.0
-            self.Q[state] = state_entry
-        return
+        if self.learning:
+            if state not in self.Q:
+                state_entry = {}
+                for action in self.valid_actions:
+                    state_entry[action] = 0.0
+                self.Q[state] = state_entry
+            return
 
 
     def choose_action_random(self):
         n = random.randint(0, 3)
         action = self.valid_actions[n]
         return action
+
 
     def choose_action(self, state):
         """ The choose_action function is called when the agent is asked to choose
@@ -169,7 +150,12 @@ class LearningAgent(Agent):
             if onetwo == 1:
                 action = self.choose_action_random()
             elif onetwo == 2:
-                action, value = self.get_maxQ(state)
+                actionlist, value = self.get_maxQ(state)
+                if (len(actionlist) == 1) :
+                    action = actionlist[0]
+                # If there are more than two candidates, random choose one from actionList
+                elif (len(actionlist) > 1):
+                    action = random.choice(actionlist)
 
         return action
 
@@ -186,11 +172,9 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         if self.learning:
             maxA, maxQ = self.get_maxQ(state)
-            # new value, no gamma
-            X = reward + maxQ
 
             #update Q with alpha
-            self.Q[state][action] = (1 - self.alpha) * self.Q[state][action] + self.alpha * X
+            self.Q[self.state][action] = (1 - self.alpha) * self.Q[self.state][action] + self.alpha * reward
         return
 
 
