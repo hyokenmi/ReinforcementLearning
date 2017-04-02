@@ -43,19 +43,26 @@ class LearningAgent(Agent):
         # If 'testing' is True, set epsilon and alpha to 0
         self.trial += 1
 
+        ## This is the best alpha so far
         self.alpha = 0.8
         #self.alpha = 1 - 0.05 * (self.trial - 1)
 
+        ## initial function for epsilon
         #self.epsilon = 1 - 0.05 * (self.trial - 1)
 
-        #self.epsilon = pow(0.86089, self.trial)
+        #self.epsilon = 0.86089 ** self.trial
 
-        self.epsilon = 1 / self.trial ** 2
+        ## THis works out best so far
+        self.epsilon = 1 / (self.trial ** 2)
 
         #a = 0.14979
         #self.epsilon = math.exp(-a * self.trial)
 
         #self.epsilon = math.cos(0.03927 * self.trial)
+
+
+        ## epsilon = e**(e**(-t))
+        self.epsilon = math.exp((-math.exp(-self.trial)))
 
         if testing:
             self.epsilon = 0
@@ -94,10 +101,7 @@ class LearningAgent(Agent):
         maxA = None
 
         if state in self.Q:
-            actiondict = self.Q[state]
-            maxQ = max(actiondict.values())
-            maxA = [key for key in actiondict.keys() if actiondict[key] == maxQ]
-        return maxA, maxQ
+            return max(self.Q[state].values())
 
 
     def createQ(self, state):
@@ -117,13 +121,6 @@ class LearningAgent(Agent):
                 self.Q[state] = state_entry
             return
 
-
-    def choose_action_random(self):
-        n = random.randint(0, 3)
-        action = self.valid_actions[n]
-        return action
-
-
     def choose_action(self, state):
         """ The choose_action function is called when the agent is asked to choose
             which action to take, based on the 'state' the smartcab is in. """
@@ -140,7 +137,7 @@ class LearningAgent(Agent):
         # When learning, choose a random action with 'epsilon' probability
         #   Otherwise, choose an action with the highest Q-value for the current state
         if not self.learning:
-            action = self.choose_action_random()
+            action = random.choice(self.valid_actions)
         elif self.learning:
             elements = [1,2]
             weights = [self.epsilon, 1-self.epsilon]
@@ -148,14 +145,11 @@ class LearningAgent(Agent):
             # One for random action, Two for argmax Q
             onetwo = choice(elements, p=weights)
             if onetwo == 1:
-                action = self.choose_action_random()
+                action = random.choice(self.valid_actions)
             elif onetwo == 2:
-                actionlist, value = self.get_maxQ(state)
-                if (len(actionlist) == 1) :
-                    action = actionlist[0]
-                # If there are more than two candidates, random choose one from actionList
-                elif (len(actionlist) > 1):
-                    action = random.choice(actionlist)
+                maxQ = self.get_maxQ(state)
+                best_actions = [action for action in self.valid_actions if self.Q[self.state][action] == maxQ]
+                action = random.choice(best_actions)
 
         return action
 
@@ -171,7 +165,7 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         if self.learning:
-            maxA, maxQ = self.get_maxQ(state)
+            maxQ = self.get_maxQ(state)
 
             #update Q with alpha
             self.Q[self.state][action] = (1 - self.alpha) * self.Q[self.state][action] + self.alpha * reward
@@ -232,7 +226,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10)
+    sim.run(n_test=10, tolerance=0.05)
 
 
 if __name__ == '__main__':
