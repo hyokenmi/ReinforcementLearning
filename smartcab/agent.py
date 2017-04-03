@@ -59,7 +59,7 @@ class LearningAgent(Agent):
         #self.epsilon = math.exp(-a * self.trial)
 
         #self.epsilon = math.cos(0.03927 * self.trial)
-
+        self.epsilon = math.cos(0.01 * self.trial)
 
         ## epsilon = e**(e**(-t))
         self.epsilon = math.exp((-math.exp(-self.trial)))
