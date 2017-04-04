@@ -53,16 +53,30 @@ class LearningAgent(Agent):
         #self.epsilon = 0.86089 ** self.trial
 
         ## THis works out best so far
-        self.epsilon = 1 / (self.trial ** 2)
+        #self.epsilon = 1 / (self.trial ** 2)
 
         #a = 0.14979
         #self.epsilon = math.exp(-a * self.trial)
 
+        ### This trial is around 20 times
         #self.epsilon = math.cos(0.03927 * self.trial)
-        self.epsilon = math.cos(0.01 * self.trial)
+
+        # Trial time increases to approx. 140times
+        #self.epsilon = math.cos(0.01 * self.trial)
+
+        # Trial time increases to approx. 300times
+        self.epsilon = math.cos(0.005 * self.trial)
+
+        # Trial time increases to approx. 300times
+        #self.epsilon = math.cos(0.005 * self.trial)
+
+
 
         ## epsilon = e**(e**(-t))
-        self.epsilon = math.exp((-math.exp(-self.trial)))
+        #self.epsilon = math.exp((-math.exp(-self.trial)))
+
+        #self.epsilon = 1 - 0.1 * (self.trial/20)
+
 
         if testing:
             self.epsilon = 0
@@ -226,7 +240,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10, tolerance=0.05)
+    sim.run(n_test=10, tolerance=0.04)
 
 
 if __name__ == '__main__':
