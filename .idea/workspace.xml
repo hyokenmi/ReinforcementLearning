@@ -7,7 +7,6 @@
     <list default="true" id="f8757eb2-d570-45f8-8ca8-e6aac84ff073" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/smartcab-checkpoint.ipynb" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/smartcab-checkpoint.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report.html" afterPath="$PROJECT_DIR$/report.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smartcab.ipynb" afterPath="$PROJECT_DIR$/smartcab.ipynb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,31 +50,30 @@
       <file leaf-file-name="simulator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smartcab/simulator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2595">
+            <state relative-caret-position="-45">
               <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="59" selection-end-line="173" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="environment.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="environment.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/smartcab/environment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5895">
-              <caret line="409" column="0" lean-forward="false" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="249" column="41" lean-forward="true" selection-start-line="249" selection-start-column="41" selection-end-line="249" selection-end-column="41" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#140#738#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="agent.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="agent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="853">
-              <caret line="245" column="26" lean-forward="true" selection-start-line="245" selection-start-column="26" selection-end-line="245" selection-end-column="26" />
+            <state relative-caret-position="325">
+              <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="33" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -87,7 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sense</find>
       <find>sual</find>
       <find>build_state</find>
       <find>simulation</find>
@@ -117,6 +114,7 @@
       <find>valid_actions</find>
       <find>n_test</find>
       <find>deadline</find>
+      <find>inputs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,10 +140,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1939" />
-    <option name="y" value="-297" />
-    <option name="width" value="1352" />
-    <option name="height" value="1006" />
+    <option name="x" value="-1425" />
+    <option name="y" value="-329" />
+    <option name="width" value="1301" />
+    <option name="height" value="1124" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -564,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491295717123</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Updated html and ipynb&#10;">
+      <created>1491296124994</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1491296124994</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -577,7 +582,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1939" y="-297" width="1352" height="1006" extended-state="0" />
+    <frame x="-1425" y="-329" width="1301" height="1124" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22969432" sideWeight="0.4966249" order="0" side_tool="false" content_ui="combo" />
@@ -585,7 +590,7 @@
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12657005" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297975" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28884026" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38468993" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32883316" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962743" sideWeight="0.49661836" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -640,7 +645,8 @@
     <MESSAGE value="revised code" />
     <MESSAGE value="added new function for epsilon&#10;" />
     <MESSAGE value="Found better epsilon function.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Found better epsilon function.&#10;" />
+    <MESSAGE value="Updated html and ipynb&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated html and ipynb&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,6 +665,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/smartcab/planner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smartcab/simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2595">
+          <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="59" selection-end-line="173" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smartcab/environment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5895">
+          <caret line="409" column="0" lean-forward="false" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/smartcab/planner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -681,7 +723,6 @@
           <caret line="409" column="0" lean-forward="true" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#140#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -708,7 +749,6 @@
           <caret line="448" column="27" lean-forward="true" selection-start-line="448" selection-start-column="27" selection-end-line="448" selection-end-column="27" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#140#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -749,7 +789,6 @@
           <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#140#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,7 +839,6 @@
           <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#140#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -835,7 +873,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#140#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,7 +915,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#140#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1027,6 +1063,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/smartcab/simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="59" selection-end-line="173" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/smartcab/planner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1035,31 +1079,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smartcab/simulator.py">
+    <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2595">
-          <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="59" selection-end-line="173" selection-end-column="59" />
-          <folding />
+        <state relative-caret-position="325">
+          <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/smartcab/environment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5895">
-          <caret line="409" column="0" lean-forward="false" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="249" column="41" lean-forward="true" selection-start-line="249" selection-start-column="41" selection-end-line="249" selection-end-column="41" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#140#738#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="853">
-          <caret line="245" column="26" lean-forward="true" selection-start-line="245" selection-start-column="26" selection-end-line="245" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
